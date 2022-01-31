@@ -15,7 +15,7 @@ on:
 jobs:
     deploy:
         name: Deploy
-        runs-on: ubantu-latest
+        runs-on: ubuntu-latest
         steps:
         
         - name: Gennerate Unique ID

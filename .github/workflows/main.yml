@@ -30,7 +30,7 @@ jobs:
               service_account_key: ${{secrets.GCP_SA_KEY_PROD}}
               
         - name: Checkout Repositry
-          uses: actions/checkout@master
+          uses: actions/checkout@v0
             
         - name: Upload 'dag' folder
           run: gsutil -m cp -r ./templates/ gs://us-east1-mycomposer-49661bc9-bucket/

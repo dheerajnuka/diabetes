@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CICD
+
+on:
+
+  push:
+    branches: [ master ]
+  schedule:
+  - cron: "0 0 * * *"
+
+
+  workflow_dispatch:
+
+jobs:
+    deploy:
+        name: Deploy
+        runs-on: ubantu-latest
+        steps:
+        
+        - name: Gennerate Unique ID
+          id: generate_unique_id
+          run: echo "::set-output name=uuid::$(uuidgen)"
+          
+        - name: Login
+          uses: google-github-actions/setup-gcloud@master
+          with:
+              project_id: ${{secrets.GCP_PROJECT_ID_PROD}}
+              service_account_email: ${{secrets.GCP_SA_EMAIL_PROD}}
+              service_account_key: ${{secrets.GCP_SA_KEY_PROD}}
+              
+        - name: Checkout Repositry
+          uses: actions/checkut@v2
+          with:
+            ref: master
+            
+        - name: Upload 'dag' folder
+          run: gsutil -m cp -r ./data/ gs://us-east1-mycomposer-49661bc9-bucket/
+        
+  

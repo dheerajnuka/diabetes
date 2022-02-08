@@ -3,6 +3,7 @@ import pickle
 import numpy as np
 import sqlite3
 import pandas
+import matplotlib as plt
 # Load the Random Forest CLassifier model
 filename = 'diabetes-prediction-rfc-model.pkl'
 classifier = pickle.load(open(filename, 'rb'))

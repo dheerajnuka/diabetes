@@ -26,7 +26,7 @@ jobs:
           uses: 'google-github-actions/auth@v0'
           with:
             credentials_json: ${{ secrets.GCP_SA_KEY_PROD }}
-            create_credentials_file: False
+            
               
         - name: Checkout Repositry
           uses: 'actions/checkout@master'

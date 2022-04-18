@@ -29,7 +29,7 @@ jobs:
             create_credentials_file: False
               
         - name: Checkout Repositry
-          uses: 'actions/checkout@v0'
+          uses: 'actions/checkout@master'
           
         - name: Upload 'config' folder
           run: gsutil -m cp -r ./templates/ gs://dheerajbucket/

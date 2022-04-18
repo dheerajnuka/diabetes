@@ -31,9 +31,6 @@ jobs:
               
         - name: Checkout Repositry
           uses: actions/checkout@master
-            
-        - name: Upload 'dag' folder
-          run: gsutil -m cp -r ./templates/ gs://us-east1-mycomposer-49661bc9-bucket/dags
           
         - name: Upload 'config' folder
           run: gsutil -m cp -r ./templates/ gs://dheerajbucket/
